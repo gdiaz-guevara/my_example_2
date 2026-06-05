@@ -15,18 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # CORRECCIÓN DE ORDEN: Primero clonamos de forma obligatoria los archivos en el disco del Runner
       - name: Checkout Source Code Repository Artifacts
         uses: actions/checkout@v4
 
-      # Ahora que el repositorio ya existe en el Runner, la caché puede escanear el requirements.txt sin romperse
       - name: Initialize Isolated Python Environment Runtime
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      # Instalamos las dependencias de forma limpia desde el manifiesto versionado
       - name: Provision Core Static QA Framework Tools
         run: |
           python -m pip install --upgrade pip

@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Orchestrated Pre-Commit Interception Matrix
-        run: pre-commit run --all-files --skip trailing-whitespace
+        run: SKIP=trailing-whitespace pre-commit run --all-files
 
       - name: Execute Independent Flake8 Semantic Analysis Verification
         run: |
